@@ -7,12 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3213B92200894B200322922 /* MixpanelDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3213B91200894B200322922 /* MixpanelDate.swift */; };
+		B3213B96200CAA8E00322922 /* CheckFileDragView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3213B95200CAA8E00322922 /* CheckFileDragView.swift */; };
 		B38DE9BB200746F00074B378 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38DE9BA200746F00074B378 /* AppDelegate.swift */; };
 		B38DE9BD200746F00074B378 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38DE9BC200746F00074B378 /* ViewController.swift */; };
 		B38DE9BF200746F00074B378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B38DE9BE200746F00074B378 /* Assets.xcassets */; };
 		B38DE9C2200746F00074B378 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B38DE9C0200746F00074B378 /* Main.storyboard */; };
 		B38DE9CE200746F10074B378 /* EPCMixpanelDataAnalysisToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38DE9CD200746F10074B378 /* EPCMixpanelDataAnalysisToolTests.swift */; };
 		B38DE9D9200746F10074B378 /* EPCMixpanelDataAnalysisToolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38DE9D8200746F10074B378 /* EPCMixpanelDataAnalysisToolUITests.swift */; };
+		B3E4F818200751BC00D0CFFD /* EPCMixpanelDataAnalysisTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E4F817200751BC00D0CFFD /* EPCMixpanelDataAnalysisTool.swift */; };
+		B3E4F81C2007523700D0CFFD /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3E4F81B2007523700D0CFFD /* SwiftyJSON.framework */; };
+		B3E4F820200752AD00D0CFFD /* Macros.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E4F81F200752AD00D0CFFD /* Macros.swift */; };
+		B3E4F822200772D100D0CFFD /* mixpanel_1.json in Resources */ = {isa = PBXBuildFile; fileRef = B3E4F821200772D100D0CFFD /* mixpanel_1.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B3213B91200894B200322922 /* MixpanelDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixpanelDate.swift; sourceTree = "<group>"; };
+		B3213B95200CAA8E00322922 /* CheckFileDragView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckFileDragView.swift; sourceTree = "<group>"; };
 		B38DE9B7200746F00074B378 /* EPCMixpanelDataAnalysisTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EPCMixpanelDataAnalysisTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38DE9BA200746F00074B378 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B38DE9BC200746F00074B378 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +54,10 @@
 		B38DE9D4200746F10074B378 /* EPCMixpanelDataAnalysisToolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EPCMixpanelDataAnalysisToolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38DE9D8200746F10074B378 /* EPCMixpanelDataAnalysisToolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPCMixpanelDataAnalysisToolUITests.swift; sourceTree = "<group>"; };
 		B38DE9DA200746F10074B378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3E4F817200751BC00D0CFFD /* EPCMixpanelDataAnalysisTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPCMixpanelDataAnalysisTool.swift; sourceTree = "<group>"; };
+		B3E4F81B2007523700D0CFFD /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/Mac/SwiftyJSON.framework; sourceTree = "<group>"; };
+		B3E4F81F200752AD00D0CFFD /* Macros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macros.swift; sourceTree = "<group>"; };
+		B3E4F821200772D100D0CFFD /* mixpanel_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mixpanel_1.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3E4F81C2007523700D0CFFD /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +93,7 @@
 				B38DE9CC200746F10074B378 /* EPCMixpanelDataAnalysisToolTests */,
 				B38DE9D7200746F10074B378 /* EPCMixpanelDataAnalysisToolUITests */,
 				B38DE9B8200746F00074B378 /* Products */,
+				B3E4F81A2007523700D0CFFD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,12 +110,15 @@
 		B38DE9B9200746F00074B378 /* EPCMixpanelDataAnalysisTool */ = {
 			isa = PBXGroup;
 			children = (
+				B3E4F81E2007529100D0CFFD /* New Group */,
 				B38DE9BA200746F00074B378 /* AppDelegate.swift */,
 				B38DE9BC200746F00074B378 /* ViewController.swift */,
 				B38DE9BE200746F00074B378 /* Assets.xcassets */,
 				B38DE9C0200746F00074B378 /* Main.storyboard */,
 				B38DE9C3200746F00074B378 /* Info.plist */,
+				B3E4F821200772D100D0CFFD /* mixpanel_1.json */,
 				B38DE9C4200746F00074B378 /* EPCMixpanelDataAnalysisTool.entitlements */,
+				B3213B95200CAA8E00322922 /* CheckFileDragView.swift */,
 			);
 			path = EPCMixpanelDataAnalysisTool;
 			sourceTree = "<group>";
@@ -124,6 +141,24 @@
 			path = EPCMixpanelDataAnalysisToolUITests;
 			sourceTree = "<group>";
 		};
+		B3E4F81A2007523700D0CFFD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B3E4F81B2007523700D0CFFD /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B3E4F81E2007529100D0CFFD /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				B3E4F817200751BC00D0CFFD /* EPCMixpanelDataAnalysisTool.swift */,
+				B3E4F81F200752AD00D0CFFD /* Macros.swift */,
+				B3213B91200894B200322922 /* MixpanelDate.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,6 +169,7 @@
 				B38DE9B3200746F00074B378 /* Sources */,
 				B38DE9B4200746F00074B378 /* Frameworks */,
 				B38DE9B5200746F00074B378 /* Resources */,
+				B3E4F819200751D700D0CFFD /* Carthage Script */,
 			);
 			buildRules = (
 			);
@@ -193,6 +229,11 @@
 					B38DE9B6200746F00074B378 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					B38DE9C8200746F10074B378 = {
 						CreatedOnToolsVersion = 9.2;
@@ -231,6 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3E4F822200772D100D0CFFD /* mixpanel_1.json in Resources */,
 				B38DE9BF200746F00074B378 /* Assets.xcassets in Resources */,
 				B38DE9C2200746F00074B378 /* Main.storyboard in Resources */,
 			);
@@ -252,12 +294,34 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B3E4F819200751D700D0CFFD /* Carthage Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/SwiftyJSON.framework",
+			);
+			name = "Carthage Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B38DE9B3200746F00074B378 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3E4F820200752AD00D0CFFD /* Macros.swift in Sources */,
+				B3213B96200CAA8E00322922 /* CheckFileDragView.swift in Sources */,
 				B38DE9BD200746F00074B378 /* ViewController.swift in Sources */,
+				B3213B92200894B200322922 /* MixpanelDate.swift in Sources */,
+				B3E4F818200751BC00D0CFFD /* EPCMixpanelDataAnalysisTool.swift in Sources */,
 				B38DE9BB200746F00074B378 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,10 +479,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = EPCMixpanelDataAnalysisTool/EPCMixpanelDataAnalysisTool.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9PJ22KK765;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = EPCMixpanelDataAnalysisTool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -432,10 +499,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = EPCMixpanelDataAnalysisTool/EPCMixpanelDataAnalysisTool.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9PJ22KK765;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = EPCMixpanelDataAnalysisTool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
