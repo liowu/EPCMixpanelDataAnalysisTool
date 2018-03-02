@@ -34,7 +34,6 @@ class ViewController: NSViewController {
         
         refreshSubviews()
     }
-    
     override func viewWillAppear() {
         super.viewWillAppear()
         checkDragFileView.layer?.backgroundColor = NSColor.lightGray.cgColor
@@ -92,6 +91,15 @@ class ViewController: NSViewController {
         }
     }
     
+    
+    @IBAction func failedCountClick(_ sender: Any) {
+        let startDate = Int64(startDatePicker.dateValue.timeIntervalSince1970 * 1000)
+        let endDate = Int64(endDatePicker.dateValue.timeIntervalSince1970 * 1000 + 24 * 60 * 60 * 1000)
+        let datesSep = MixpanelDate.formatDate(startTime: startDate, endTime: endDate, sepDaysLength: dateSperatorPickerSelectedItem())
+        EPCMixpanelDataAnalysisTool.default.failureCount(dates: datesSep, dateDesc: "fail count")
+        EPCMixpanelDataAnalysisTool.default.exportFiles()
+    }
+    
     func refreshData() {
         let startDate = Int64(startDatePicker.dateValue.timeIntervalSince1970 * 1000)
         let endDate = Int64(endDatePicker.dateValue.timeIntervalSince1970 * 1000 + 24 * 60 * 60 * 1000)
@@ -119,7 +127,6 @@ class ViewController: NSViewController {
         ani.start()
         dataInfoTF.scrollRangeToVisible(NSRange(location: dataInfoTF.string.count, length: 0))
         ani.stop()
-        
     }
     
     // MARK: - action

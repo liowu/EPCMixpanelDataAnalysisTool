@@ -120,11 +120,13 @@ class EPCMixpanelDataAnalysisTool: NSObject {
         var filterArray = [Float]()
         if let globalJsonArray = globalJson {
             for itemJson in globalJsonArray {
+                // 过滤非美国数据
+                if !isFilterForUS(json: itemJson) {
+                    continue
+                }
+                
                 if let time = itemJson[kTime].int64,
-                    case date.time.startTime..<date.time.endTime = time,
-//                    添加过滤器，这里过滤出美国的
-                    let mp_country_code = itemJson["properties"]["mp_country_code"].string,
-                    mp_country_code == "US"
+                    case date.time.startTime..<date.time.endTime = time
                 {
                     let value = Util.correctData(key: valueKey, keyJson: itemJson[kProperties][valueKey])
                     filterArray.append(value)
@@ -225,6 +227,42 @@ class EPCMixpanelDataAnalysisTool: NSObject {
         }
     }
     
+    func failureCount(dates:[MixpanelDate], dateDesc:String) {
+        var dateAndCount = [String:Int]()
+        for item in dates {
+            dateAndCount[item.decription] = failureCount(date: item, dateDesc: dateDesc)
+        }
+        
+        // file
+        var csv = "Date, count\n"
+        for (dateKey, v) in dateAndCount {
+            // date
+            csv = csv + dateKey
+            
+            // count
+            csv = csv + ", \(v)"
+            csv = csv + "\n"
+        }
+        let file = MixpanelFile(content: csv, filePath: EPCMixpanelDataAnalysisTool.fileExportFolderPath, fileName: "[All counts] " + dateDesc +  ".xls")
+        files.append(file)
+    }
+    
+    // failure count
+    private func failureCount(date:MixpanelDate, dateDesc:String) -> Int {
+        return globalJson?.filter({ (dict) -> Bool in
+            // 过滤非美国数据
+//            if !isFilterForUS(json: dict) {
+//                return false
+//            }
+            
+            if let time = dict[kTime].int64,
+                case date.time.startTime..<date.time.endTime = time {
+                return true
+            }
+            return false
+        }).count ?? 0
+    }
+    
     func exportFilesDescription() -> String {
         var desc = "======= Files ====== \n"
         if files.count == 0 {
@@ -250,6 +288,14 @@ class EPCMixpanelDataAnalysisTool: NSObject {
             try fileManager.createDirectory(atPath: filePath, withIntermediateDirectories: true, attributes: nil)
         }
         try content.write(to: URL(fileURLWithPath: filePath + "/\(fileName)"), atomically: true, encoding: .utf8)
+    }
+    
+    private func isFilterForUS(json:JSON) -> Bool {
+        if let mp_country_code = json["properties"]["mp_country_code"].string,
+            mp_country_code == "US" {
+            return true
+        }
+        return false
     }
 }
 

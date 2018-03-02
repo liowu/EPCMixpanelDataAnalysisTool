@@ -855,15 +855,15 @@
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KcJ-bH-T2c">
                                 <rect key="frame" x="401" y="276" width="69" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <popUpButtonCell key="cell" type="push" title="none" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="wK2-WH-xch" id="KyW-NH-Ihk">
+                                <popUpButtonCell key="cell" type="push" title="none" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="wK2-WH-xch" id="KyW-NH-Ihk">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="RgX-CO-1eP">
                                         <items>
-                                            <menuItem title="none" id="wK2-WH-xch"/>
+                                            <menuItem title="none" state="on" id="wK2-WH-xch"/>
                                             <menuItem title="hour" id="kVR-gT-dAq"/>
                                             <menuItem title="day" id="QRv-Ni-ige"/>
-                                            <menuItem title="week" state="on" id="7v0-bR-CuM"/>
+                                            <menuItem title="week" id="7v0-bR-CuM"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
@@ -896,7 +896,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView ambiguous="YES" editable="NO" selectable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Ln6-sU-du2">
-                                            <rect key="frame" x="0.0" y="-0.5" width="318" height="140"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="318" height="140"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <size key="minSize" width="318" height="140"/>
@@ -932,7 +932,7 @@
                                         <rect key="frame" x="4" y="37" width="144" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Drag file here to analysis" id="HXa-No-xes">
-                                            <font key="font" metaFont="system" size="12"/>
+                                            <font key="font" metaFont="cellTitle"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -952,15 +952,27 @@
                                 <rect key="frame" x="91" y="41" width="404" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="???" id="s81-wv-Jyh">
-                                    <font key="font" metaFont="system" size="11"/>
+                                    <font key="font" metaFont="smallSystem"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GpA-ZK-QEx">
+                                <rect key="frame" x="341" y="37" width="158" height="32"/>
+                                <buttonCell key="cell" type="push" title="Export Failed count" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UWk-yO-hVN">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <action selector="failedCountClick:" target="XfG-lQ-9wD" id="vkc-cw-AZw"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="GpA-ZK-QEx" secondAttribute="bottom" constant="44" id="C4f-PH-I62"/>
                             <constraint firstItem="XV7-xI-dJx" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Czs-d1-teb"/>
                             <constraint firstItem="kiF-XN-rMu" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="11" id="Kbl-23-GZb"/>
+                            <constraint firstAttribute="trailing" secondItem="GpA-ZK-QEx" secondAttribute="trailing" constant="7" id="SE6-Fw-65H"/>
                             <constraint firstItem="O1d-UV-WKc" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="10" id="gh4-LU-sDu"/>
                             <constraint firstItem="kiF-XN-rMu" firstAttribute="leading" secondItem="O1d-UV-WKc" secondAttribute="trailing" constant="10" id="i3G-cx-a9Q"/>
                             <constraint firstItem="XV7-xI-dJx" firstAttribute="leading" secondItem="who-EB-chY" secondAttribute="trailing" constant="10" id="l4w-kP-rsF"/>
@@ -977,6 +989,7 @@
                         <outlet property="endDatePicker" destination="VXn-Wq-VHM" id="hgZ-gD-7Gb"/>
                         <outlet property="eventLabel" destination="kiF-XN-rMu" id="Doe-NU-UKK"/>
                         <outlet property="exportBtn" destination="UOv-RN-tbX" id="Yak-Yi-W4b"/>
+                        <outlet property="failedCountButton" destination="GpA-ZK-QEx" id="SEa-fX-YCq"/>
                         <outlet property="filePathLabel" destination="b53-WP-69j" id="8uV-tj-88U"/>
                         <outlet property="firstKeyPopMenu" destination="wQT-Ws-IMH" id="eae-Nx-tkQ"/>
                         <outlet property="keyValueRadio" destination="XV7-xI-dJx" id="0cw-yc-auU"/>
