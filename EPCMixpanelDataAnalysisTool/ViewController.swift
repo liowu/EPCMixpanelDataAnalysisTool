@@ -30,13 +30,16 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkDragFileView.wantsLayer = true
-        checkDragFileView.layer?.backgroundColor = NSColor.red.cgColor
-        checkDragFileView.layer?.borderWidth = 2
-        checkDragFileView.layer?.borderColor = NSColor.black.cgColor
-        
         checkDragFileView.delegate = self
         
         refreshSubviews()
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        checkDragFileView.layer?.backgroundColor = NSColor.lightGray.cgColor
+        checkDragFileView.layer?.borderWidth = 2
+        checkDragFileView.layer?.borderColor = NSColor.black.cgColor
     }
 
     override var representedObject: Any? {

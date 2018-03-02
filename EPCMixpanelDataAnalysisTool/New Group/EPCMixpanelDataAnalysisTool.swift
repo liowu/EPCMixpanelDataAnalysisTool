@@ -80,7 +80,7 @@ class EPCMixpanelDataAnalysisTool: NSObject {
     // 时间段划分的 valueKey 统计
     func tpFor(dates:[MixpanelDate], valueKey:String, dateDesc:String) {
         files.removeAll()
-        var dateAndValuesDict = [String:[Float]]()
+        var dateAndValuesDict = [String:(count:Int, tp:[Float])]()
         for item in dates {
             if let value = tpFor(date: item, valueKey: valueKey) {
                 dateAndValuesDict[item.decription] = value
@@ -93,14 +93,21 @@ class EPCMixpanelDataAnalysisTool: NSObject {
         
         // 文件
         var csv = "Date"
+        csv = "Date" + ", count"
         for tp in TP_Desc {
             csv.append(", "+tp)
         }
         csv = csv + "\n"
         
         for (dateKey, v) in dateAndValuesDict {
+            // 日期
             csv = csv + dateKey
-            for item in v {
+            
+            // count
+            csv = csv + ", \(v.count)"
+            
+            // tp
+            for item in v.tp {
               csv = csv + ", \(item)"
             }
             csv = csv + "\n"
@@ -109,12 +116,16 @@ class EPCMixpanelDataAnalysisTool: NSObject {
         files.append(file)
     }
     
-    private func tpFor(date:MixpanelDate, valueKey:String) -> [Float]? {
+    private func tpFor(date:MixpanelDate, valueKey:String) -> (count:Int, tp:[Float])? {
         var filterArray = [Float]()
         if let globalJsonArray = globalJson {
             for itemJson in globalJsonArray {
                 if let time = itemJson[kTime].int64,
-                    case date.time.startTime..<date.time.endTime = time {
+                    case date.time.startTime..<date.time.endTime = time,
+//                    添加过滤器，这里过滤出美国的
+                    let mp_country_code = itemJson["properties"]["mp_country_code"].string,
+                    mp_country_code == "US"
+                {
                     let value = Util.correctData(key: valueKey, keyJson: itemJson[kProperties][valueKey])
                     filterArray.append(value)
                 }
@@ -134,7 +145,7 @@ class EPCMixpanelDataAnalysisTool: NSObject {
             let index = Int(Float(tp * filterArray.count) / 100)
             tpValueArray.append(filterArray[index])
         }
-        return tpValueArray
+        return (count:filterArray.count, tp:tpValueArray)
     }
     
     // 不同机型下的 size TP50,TP95

@@ -30,8 +30,8 @@ public struct MixpanelDate {
         self.time = time
         self.decription =
             dateformatter.string(from: Date(timeIntervalSince1970: TimeInterval(time.startTime/1000)))
-            + " - "
-            + dateformatter.string(from: Date(timeIntervalSince1970: TimeInterval(time.endTime/1000) - 1))
+//            + " - "
+//            + dateformatter.string(from: Date(timeIntervalSince1970: TimeInterval(time.endTime/1000) - 1))
     }
     
     static func formatDate(startTime:Int64, endTime:Int64, sepDaysLength:Int) -> [MixpanelDate] {
